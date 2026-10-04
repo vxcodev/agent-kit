@@ -49,6 +49,12 @@ User → Orchestrator → workflow thích nghi → Agent chuyên biệt
 
 Quan sát ghi `.agent/lessons/`. Nhớ lâu trong `.agent/MEMORY.md`. Đưa lên kit chỉ qua `workflows/distill.md` và Human approval, rồi bump version.
 
+Mẫu nghiệp vụ nằm ở `catalog/` (project, module, component, function). `templates/project/` chỉ tạo khung `.agent/`. Project ghi mẫu đã chọn trong `.agent/CATALOG.md`.
+
+Lúc mở project: đủ thiết lập cơ bản theo `rules/project-setup.md`. Phần chưa cần thì điền khi bước tương ứng dùng tới.
+
+Nhận diện (logo, màu, banner, tỷ lệ, kích thước ảnh): `rules/brand.md`. Chưa có bộ riêng thì dùng `catalog/brand/default`.
+
 ## Cập nhật kit
 
 ```bash

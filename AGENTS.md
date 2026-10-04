@@ -37,6 +37,16 @@ Orchestrator route theo **minimum necessary workflow**. Chi tiết route: `workf
 
 Mode (`automatic` / `semi-auto` / `manual`) chỉ đổi **ai quyết định bước tiếp**, không đổi responsibility. Mặc định khuyến nghị: `semi-auto`.
 
+## Catalog
+
+Mẫu dùng chung: `catalog/` (`projects`, `modules`, `components`, `functions`). Danh tính đã chốt của từng project: `.agent/CATALOG.md`. Task sau đối chiếu file đó và `.agent/requirements/`, không quét lại catalog.
+
+## Project Setup
+
+Thiết lập lúc bắt đầu: [`rules/project-setup.md`](rules/project-setup.md). Mục cơ bản phải đủ. Mục chưa ảnh hưởng bước hiện tại thì bổ sung khi bước đó cần dữ liệu.
+
+Nhận diện: [`rules/brand.md`](rules/brand.md). Bộ mặc định khi project chưa có hoặc còn thiếu: `catalog/brand/default`.
+
 ## Orchestrator Agent
 
 Path: `agents/orchestrator/AGENT.md`

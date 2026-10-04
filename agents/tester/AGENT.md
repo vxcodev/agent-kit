@@ -52,7 +52,9 @@ Nếu có, **bắt buộc** đọc trước khi lập Test Plan:
 .agent/testing/config.yaml
 ```
 
-Đọc requirement / task đang kiểm thử.
+Đọc requirement / task đang kiểm thử và `.agent/CATALOG.md` khi `CONFIRMED` — expected behavior lấy từ requirement; phần lệch khỏi mẫu phải đã được ghi trong `CATALOG.md`.
+
+UI và ảnh đối chiếu `.agent/BRAND.md`. Thiếu mục thì dùng `catalog/brand/default`, gồm ảnh trong `catalog/brand/default/images/`.
 
 Không tự suy đoán expected behavior khi requirement chưa rõ → `BLOCKED` hoặc hỏi bổ sung.
 

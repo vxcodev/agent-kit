@@ -4,6 +4,22 @@ Mọi thay đổi đáng chú ý của **agent-kit** ghi tại đây.
 
 Format dựa trên [Keep a Changelog](https://keepachangelog.com/); version theo [SemVer](https://semver.org/).
 
+## [0.10.0] — 2026-10-04
+
+### Added
+
+- `catalog/` — kho project mẫu, module, component, function (chưa có mục)
+- `templates/project/CATALOG.md` — file nhận diện, mặc định `UNCONFIRMED`
+- Bootstrap §3.9: tạo `.agent/CATALOG.md` nếu chưa có, không ghi đè bản đã chốt
+
+### Changed
+
+- `workflows/distill.md` và `rules/knowledge-management.md`: đích có thể là catalog
+- Orchestrator, Developer, Reviewer: đối chiếu `.agent/CATALOG.md` và requirement sau khi chốt
+- `rules/project-setup.md`: thiết lập cơ bản phải đủ lúc bắt đầu; phần chưa ảnh hưởng thì bổ sung khi bước đó cần dữ liệu
+- `rules/brand.md` và `catalog/brand/default`: nhận diện trước khi làm UI; mục thiếu lấy từ bộ mặc định
+- Ảnh chuẩn trong `catalog/brand/default/images/` (placehold.co, nhãn ngắn, đúng khổ)
+
 ## [0.9.0] — 2026-10-04
 
 ### Added

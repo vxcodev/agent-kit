@@ -54,7 +54,11 @@ Nếu có, **bắt buộc** áp dụng:
 .agent/review/config.yaml
 ```
 
-Đọc thêm: requirement / task · acceptance criteria · plan liên quan · changed files · test results phù hợp.
+Đọc thêm: requirement / task · `.agent/CATALOG.md` · acceptance criteria · plan liên quan · changed files · test results phù hợp.
+
+Nếu change lệch mẫu đã `CONFIRMED` mà không ghi trong `CATALOG.md` → `REQUEST_CHANGES`.
+
+UI hoặc ảnh sai logo, token màu, tỷ lệ banner, kích thước chuẩn trong `.agent/BRAND.md` → `REQUEST_CHANGES`.
 
 Không review chỉ dựa vào diff khi thiếu business context quan trọng → `BLOCKED` hoặc hỏi bổ sung.
 

@@ -49,7 +49,11 @@ Nếu có, **bắt buộc** áp dụng:
 .agent/development/config.yaml
 ```
 
-Đọc thêm: task · requirement · acceptance criteria · decisions liên quan · source · tests · conventions.
+Đọc thêm: task · requirement · acceptance criteria · `.agent/CATALOG.md` · decisions liên quan · source · tests · conventions.
+
+Nếu `CATALOG.md` là `CONFIRMED`: làm trong phần đã nhận từ mẫu. Requirement đòi khác mẫu thì ghi vào "Lệch khỏi mẫu". Không tự đổi id/version.
+
+UI và ảnh theo `.agent/BRAND.md` và `rules/brand.md`.
 
 Không bắt đầu implementation chỉ từ tên task khi requirement chưa rõ → escalate BA / Human.
 

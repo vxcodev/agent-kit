@@ -60,8 +60,10 @@ Tạo cấu trúc:
 ├── orchestration/          # nếu chưa có — xem §3.7
 │   ├── ORCHESTRATION.md
 │   └── config.yaml
-└── lessons/                # nếu chưa có — xem §3.8
-    └── README.md
+├── lessons/                # nếu chưa có — xem §3.8
+│   └── README.md
+├── CATALOG.md              # nếu chưa có — xem §3.9
+└── BRAND.md                # nếu chưa có — xem §3.10
 ```
 
 ### 3.1. Deployment configuration
@@ -196,15 +198,52 @@ templates/project/lessons/
 
 - Nếu `.agent/lessons/` **chưa** tồn tại: copy từ `agent-kit/templates/project/lessons/`.
 - Nếu **đã** tồn tại: **không** ghi đè, **không** xóa lesson cũ.
-- Lesson là project knowledge. Promote lên Core chỉ qua `workflows/distill.md` + Human approval.
+- Lesson là project knowledge. Promote lên Core hoặc `catalog/` chỉ qua `workflows/distill.md` + Human approval.
 
-Contract cross-cutting (không copy vào Bootstrap): `rules/priority.md`, `rules/task-lifecycle.md`, `rules/state-management.md`, `rules/handoff.md`, `rules/approval.md`, `rules/risk.md`, `rules/knowledge-management.md`. Security: `SECURITY.md`. Workflow: `workflows/`.
+### 3.9. Catalog binding
+
+```text
+.agent/CATALOG.md exists?
+       │
+   ┌───┴───┐
+   NO      YES
+   ↓        ↓
+CREATE     KEEP
+from       DO NOT OVERWRITE
+templates/project/CATALOG.md
+```
+
+- Nếu chưa có: copy `templates/project/CATALOG.md` (`Status: UNCONFIRMED`).
+- Nếu đã có, kể cả `CONFIRMED` hoặc `NONE`: **không** ghi đè, **không** nâng version theo catalog kit.
+
+### 3.10. Brand
+
+```text
+.agent/BRAND.md exists?
+       │
+   ┌───┴───┐
+   NO      YES
+   ↓        ↓
+CREATE     KEEP
+from       DO NOT OVERWRITE
+templates/project/BRAND.md
+```
+
+- Nếu chưa có: copy `templates/project/BRAND.md` (`Status: DEFAULT`).
+- Nếu đã có: **không** ghi đè.
+- Mục trống trong bộ `MIXED` lấy từ `catalog/brand/default`. Chi tiết: `rules/brand.md`.
+
+`templates/project/` vẫn chỉ là khung `.agent/`. Project mẫu nghiệp vụ nằm ở `catalog/projects/`.
+
+Contract cross-cutting (không copy vào Bootstrap): `rules/priority.md`, `rules/project-setup.md`, `rules/task-lifecycle.md`, `rules/state-management.md`, `rules/handoff.md`, `rules/approval.md`, `rules/risk.md`, `rules/knowledge-management.md`. Security: `SECURITY.md`. Workflow: `workflows/`.
 
 ## 4. Analyze Project
 
 Agent được phép phân tích source code để điền các thông tin có thể xác định chắc chắn.
 
 Không được tự suy đoán thông tin business chưa biết.
+
+Thiết lập lúc mở project: `rules/project-setup.md`. Phần cơ bản phải đủ trước khi làm việc. Phần chưa đụng tới thì ghi "bổ sung khi" và điền ở bước cần dữ liệu đó.
 
 ## 5. GitHub
 

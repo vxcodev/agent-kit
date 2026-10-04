@@ -1,0 +1,11 @@
+id: default
+kind: brand
+version: 1.0.0
+status: active
+summary: Bộ nhận diện trung tính khi project chưa có hoặc còn thiếu mục
+tags: [brand, default, logo, color, banner, image]
+provides: [logo, color, banner, ratio, image-size]
+needs: []
+related: []
+derivedFrom: []
+lineage: []

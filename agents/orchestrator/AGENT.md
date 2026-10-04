@@ -65,7 +65,42 @@ Registry: `agent-kit/AGENTS.md`. Không hard-code “mọi Agent luôn chạy”
 
 Khi cần: `.agent/requirements/` · `architecture/` · `development/` · `testing/` · `review/` · `deploy/` · `orchestration/`.
 
+Luôn đọc `.agent/CATALOG.md` nếu file tồn tại.
+
 Không load toàn bộ tài liệu không cần nếu task nhỏ.
+
+---
+
+## Project Setup
+
+Lúc mở project, áp dụng `rules/project-setup.md`.
+
+Thiếu mục cơ bản (dự án là gì, việc đang làm, catalog `CONFIRMED` hoặc `NONE`) → hỏi, không triển khai.
+
+Nhận diện: đọc `.agent/BRAND.md`. Chưa có bộ riêng → `DEFAULT` (`catalog/brand/default`). Mục thiếu → lấy từ default, status `MIXED`. Không tự nghĩ màu hay logo.
+
+Thiếu deploy, test, convention, secret mà bước này không dùng → ghi "bổ sung khi: …" và đi tiếp. Đến bước cần mà vẫn trống → dừng bước đó và hỏi.
+
+## Catalog
+
+Lần phân tích đầu, khi `CATALOG.md` thiếu hoặc `Status: UNCONFIRMED`: đọc `catalog/INDEX.md`, gợi ý theo `tags` và `provides`, Human chọn.
+
+Sau khi Human chọn:
+
+- Có mẫu → copy `catalog/projects/<id>/tree/` vào repo, ghi `.agent/CATALOG.md` với `Status: CONFIRMED` và id@version cứng.
+- Không dùng mẫu → `Status: NONE`.
+
+`CONFIRMED` hoặc `NONE`: không đọc lại `catalog/INDEX.md`, trừ khi Human yêu cầu đổi mẫu. Không tự nâng version trong `CATALOG.md`.
+
+Mỗi task sau đó:
+
+```text
+đọc .agent/CATALOG.md
+đọc .agent/requirements/
+khớp mẫu        → làm trong khung
+requirement thêm → làm thêm, ghi "Lệch khỏi mẫu"
+mâu thuẫn mẫu   → hỏi Human
+```
 
 ---
 

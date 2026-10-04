@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Chưng cất lesson project thành đề xuất Core. Không sửa `agent-kit/` trong workflow này.
+Chưng cất lesson project thành đề xuất Core hoặc mục `catalog/`. Không sửa `agent-kit/` trong workflow này.
 
 ## Entry
 
@@ -16,8 +16,18 @@ Type ANALYSIS. Không phải implementation.
 
 ```text
 Select lesson → Generalize → Duplication check
-→ Conflict check → Security check → Core proposal → Human review
+→ Conflict check → Security check → Proposal → Human review
 ```
+
+Đích proposal: rule/workflow Core, hoặc một mục catalog.
+
+```text
+trùng id, còn tương thích → MINOR hoặc PATCH
+trùng id, lệch nhiều     → id mới
+chưa có                  → id mới @ 1.0.0
+```
+
+Project mẫu ghi vào `catalog/projects/<id>/` (`manifest.yaml`, `BLUEPRINT.md`, `tree/`). Module, component, function vào thư mục tương ứng. Không ghi secret, domain khách, `.env`.
 
 ## Optional Agents
 
@@ -37,7 +47,7 @@ Không đủ điều kiện → giữ trong `.agent/lessons/` hoặc MEMORY. Kh�
 
 ## Completion
 
-Proposal được ghi (report hoặc dexuat) và có quyết định Human. Core chỉ đổi ở task cập nhật kit riêng, kèm VERSION và CHANGELOG.
+Proposal được ghi (report hoặc dexuat) và có quyết định Human. Core hoặc catalog chỉ đổi ở task cập nhật kit riêng, kèm VERSION và CHANGELOG. Bản catalog cũ giữ trong git.
 
 ## Artifacts
 
