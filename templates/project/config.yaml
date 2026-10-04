@@ -1,0 +1,29 @@
+schema: 1
+
+agentKit:
+  installedVersion: ""
+
+project:
+  name: ""
+  type: ""
+
+execution:
+  mode: semi-auto
+
+workflow:
+  default: adaptive
+
+state:
+  autoUpdate: true
+
+memory:
+  enabled: true
+
+learning:
+  enabled: true
+
+approval:
+  productionDeploy: required
+  databaseMigration: required
+  destructiveOperation: required
+  majorArchitectureChange: required

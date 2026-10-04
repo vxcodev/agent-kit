@@ -1,0 +1,27 @@
+schema: 1
+
+orchestration:
+  enabled: true
+  strategy: adaptive
+  minimumNecessaryWorkflow: true
+
+routing:
+  ba: auto
+  architect: auto
+  developer: auto
+  tester: auto
+  reviewer: auto
+  deploy: auto
+
+risk:
+  enabled: true
+
+retry:
+  maxSameFailure: 2
+
+state:
+  owner: orchestrator
+  autoUpdate: true
+
+approval:
+  respectProjectPolicy: true

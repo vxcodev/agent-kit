@@ -1,0 +1,11 @@
+schema: 1
+
+architecture:
+  enabled: true
+  preferExisting: true
+  simplicityFirst: true
+  recordSignificantDecisions: true
+
+approval:
+  majorArchitectureChange: required
+  destructiveMigration: required

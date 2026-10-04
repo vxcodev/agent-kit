@@ -1,0 +1,14 @@
+schema: 1
+
+review:
+  enabled: true
+  riskBased: true
+  securityCheck: true
+  architectureCheck: true
+  testReview: true
+
+decision:
+  allowed:
+    - APPROVE
+    - REQUEST_CHANGES
+    - BLOCKED

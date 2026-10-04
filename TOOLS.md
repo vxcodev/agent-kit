@@ -1,6 +1,8 @@
 # TOOLS
 
-Gợi ý tool / thói quen khi agent làm việc với kit + host.
+Tool policy: **cách dùng tool an toàn**. Agent quyết định **việc cần làm**; file này không thay responsibility trong `agents/*/AGENT.md`.
+
+Git destructive và secret: authoritative tại [`SECURITY.md`](SECURITY.md). Không commit/push `agent-kit` từ workflow project — hai repository tách biệt.
 
 ## Trong repo host
 

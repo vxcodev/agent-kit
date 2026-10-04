@@ -1,0 +1,12 @@
+schema: 1
+
+testing:
+  enabled: true
+  riskBased: true
+  regression:
+    enabled: true
+  evidence:
+    required: false
+
+approval:
+  productionTesting: required

@@ -1,48 +1,59 @@
 # agent-kit
 
-Bộ workspace dùng cho **Cursor agent** khi thực hiện nghiệp vụ code.
+Shared framework cho AI Agent phát triển phần mềm 5sSoft. Mỗi project kế thừa Core, giữ knowledge riêng, và chỉ đề xuất cải tiến Core sau distill + duyệt.
 
-- Remote: https://github.com/vxcodev/agent-kit.git  
-- Clone vào từng dự án (vd. `vssoft-admin/agent-kit/`) nhưng **git độc lập** — pull/push không dính repo host.  
-- Được **nâng cấp liên tục** qua các dự án khác nhau để hoàn thiện quy trình.
+- Remote: https://github.com/vxcodev/agent-kit.git
+- Clone vào host (`<project>/agent-kit/`) với **git riêng**. Không commit kit vào repo host.
+- **Version:** [`VERSION`](VERSION) · [`CHANGELOG.md`](CHANGELOG.md)
 
-**Version:** xem [`VERSION`](VERSION) · thay đổi: [`CHANGELOG.md`](CHANGELOG.md)
-
-## Cấu trúc
-
-```text
-agent-kit/
-├── README.md
-├── VERSION
-├── CHANGELOG.md
-│
-├── AGENTS.md
-├── BOOTSTRAP.md
-├── SOUL.md
-├── TOOLS.md
-├── SECURITY.md
-│
-├── agents/           # định nghĩa / profile agent (bổ sung dần)
-├── workflows/        # playbook theo việc
-├── rules/            # rule cứng tái sử dụng
-└── templates/
-    └── project/      # mẫu zdocs / file cho host
-```
-
-## Gắn vào host
+## Cài
 
 ```bash
 git clone https://github.com/vxcodev/agent-kit.git agent-kit
-# thêm agent-kit/ vào .gitignore của host
 ```
 
-## Cập nhật / đóng góp kit
+Thêm `agent-kit/` vào `.gitignore` của host. Project ghi version đang dùng tại `.agent/config.yaml` → `agentKit.installedVersion`. Không tự upgrade.
+
+## Khởi tạo
+
+Đọc [`BOOTSTRAP.md`](BOOTSTRAP.md). Nếu chưa có `.agent/`, copy từ `templates/project/` rồi điền fact. Đã có thì không ghi đè.
+
+## Mode
+
+`execution.mode` trong config project:
+
+| Mode | Ai chọn bước tiếp |
+|---|---|
+| `manual` | Human chọn Agent / workflow / approval |
+| `semi-auto` | Agent chạy route; dừng ở approval và blocker (mặc định) |
+| `automatic` | Agent chạy hết route policy cho phép; production, destructive, security gate vẫn dừng |
+
+Mode không đổi việc mỗi Agent được phép làm.
+
+## Agent
+
+Đăng ký: [`AGENTS.md`](AGENTS.md). Entry: Orchestrator.
+
+```text
+User → Orchestrator → workflow thích nghi → Agent chuyên biệt
+    → quality gate → xong → lesson project → distill → đề xuất Core
+```
+
+## Workflow và rule
+
+- Route: `workflows/` (`feature`, `bugfix`, `hotfix`, `refactor`, `release`, `distill`)
+- Contract: `rules/` (priority, risk, lifecycle, state, handoff, approval, knowledge)
+- Security: [`SECURITY.md`](SECURITY.md) — một owner
+
+## Learning
+
+Quan sát ghi `.agent/lessons/`. Nhớ lâu trong `.agent/MEMORY.md`. Đưa lên kit chỉ qua `workflows/distill.md` và Human approval, rồi bump version.
+
+## Cập nhật kit
 
 ```bash
 cd agent-kit
 git pull origin main
-# … sửa quy trình …
-git add -A && git commit -m "…" && git push origin main
 ```
 
-Bắt đầu đọc: [`BOOTSTRAP.md`](BOOTSTRAP.md) → [`AGENTS.md`](AGENTS.md).
+Sửa Core là task riêng: commit trong `agent-kit/`, không lẫn commit host.

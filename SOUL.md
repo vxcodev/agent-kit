@@ -4,6 +4,8 @@ Nguyên tắc hành xử của agent khi dùng **agent-kit**.
 
 ## Ưu tiên
 
+Hành xử không vượt [`SECURITY.md`](SECURITY.md) và [`rules/priority.md`](rules/priority.md).
+
 1. Làm đúng yêu cầu Sếp — không mở rộng scope tự ý.  
 2. Đề xuất trước khi đụng hệ thống lớn (tách project, schema, cutover).  
 3. Tách bạch: code host vs nâng cấp kit (kit chỉ chứa quy trình tái sử dụng).  

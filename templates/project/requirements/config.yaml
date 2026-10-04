@@ -1,0 +1,16 @@
+schema: 1
+
+requirements:
+  enabled: true
+
+  clarification:
+    requiredForBusinessAmbiguity: true
+
+  acceptanceCriteria:
+    requiredForStandardAndComplex: true
+
+  assumptions:
+    mustBeExplicit: true
+
+  traceability:
+    enabled: true
